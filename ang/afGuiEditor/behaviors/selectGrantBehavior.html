@@ -1,0 +1,8 @@
+<input title="{{:: behavior.title }}" crm-ui-select="{data: behavior.options, placeholder: ts('None')}" class="form-control" ng-model="$ctrl.entity[behavior.key]">
+<p class="help-block" ng-show=":: behavior.description">{{:: behavior.description }}</p>
+
+<label class="control-label ng-binding" for="select-grant-grant-type">Grant Type</label>
+<input class="form-control" crm-autocomplete="'OptionValue'" id="select-grant-grant-type" auto-open="true" multi="true" crm-autocomplete-params="{key: 'value', filters: {'option_group_id.name': 'grant_type'}, formName: 'afformAdmin', fieldName: 'selectGrantTypeAutocomplete'}" placeholder="{{:: ts('Select a grant type') }}" ng-model="$ctrl.entity['select-grant-grant-type']" /> 
+
+<label class="control-label ng-binding" for="select-grant-grant-status">Grant Status</label>
+<input class="form-control" crm-autocomplete="'OptionValue'" id="select-grant-grant-status" auto-open="true" multi="true" crm-autocomplete-params="{key: 'value', filters: {'option_group_id.name': 'grant_status'}, formName: 'afformAdmin', fieldName: 'selectGrantStatusAutocomplete'}" placeholder="{{:: ts('Select a grant status') }}" ng-model="$ctrl.entity['select-grant-grant-status']" /> 
