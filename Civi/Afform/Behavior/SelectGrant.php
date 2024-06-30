@@ -23,23 +23,21 @@ class SelectGrant extends AbstractBehavior implements EventSubscriberInterface, 
   }
 
   public static function getTitle():string {
-    return E::ts('Grant Prefill');
+    return E::ts('Grant Autofill');
   }
 
   public static function getDescription():string {
-    return E::ts('Find the latest grant, optionally filtering by type and status.');
+    return E::ts('Find the latest grant with optional filtering by type and status.');
   }
 
   public static function getTemplate(): ?string {
-    // return '~/behaviors/selectGrantBehavior.html';
-    // This is for testing when we put the files in core.
-    return '~/afGuiEditor/behaviors/selectGrantBehavior.html';
+    return '~/crmSelectgrant/behaviors/selectGrantBehavior.html';
   }
 
   public static function getModes(string $contactType):array {
     $modes[] = [
       'name' => 'selectlatest',
-      'label' => 'Select Latest Grant of Organization1',
+      'label' => 'Yes',
     ];
     return $modes;
   }
@@ -97,7 +95,7 @@ class SelectGrant extends AbstractBehavior implements EventSubscriberInterface, 
       $clientFilters = $apiRequest->getFilters();
       if (isset($clientFilters['option_group_id.name'])) {
         $apiRequest->addFilter('option_group_id.name', $clientFilters['option_group_id.name']);
-        $apiRequest->addFilter('is_active', $clientFilters['is_active']);
+        $apiRequest->addFilter('is_active', TRUE);
       }
     }
   }
